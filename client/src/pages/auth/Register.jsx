@@ -9,6 +9,7 @@ const Register = () => {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,6 +28,7 @@ const Register = () => {
                     email,
                     password,
                     confirmPassword,
+                    role,
                 }
             });
 
@@ -51,6 +53,21 @@ const Register = () => {
         <div className='w-full min-h-screen flex justify-center items-center bg-black'>
             <form className='bg-gray-800 shadow-lg p-8 rounded-lg flex flex-col justify-center items-center gap-4 min-w-[400px] min-h-[500px]' onSubmit={handleSubmit}>
                 <h1 className='text-2xl font-bold text-white'>Register</h1>
+
+                {/* New role selection field */}
+                <div className="inputfield flex flex-col w-full">
+                <label className="text-white">Role</label>
+                <select
+                    name="role"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                    className="outline-none bg-gray-700 border-[1px] border-gray-600 rounded-lg p-2 text-white"
+                >
+                    <option value="">Select a role</option>
+                    <option value="tourist">Tourist</option>
+                    <option value="admin">Admin/Guide</option>
+                </select>
+                </div>
 
                 <div className="inputfield flex flex-col w-full">
                     <label className='text-white'>Username</label>
